@@ -1,5 +1,6 @@
-//if Router there is some error on Router use this
+//if Router there is some error on Router
 //most likely the error will popup on new flutter version
+// use this
 import 'package:flutter/material.dart ' hide Router;
 //else use this
 // import 'package:flutter/material.dart ';
