@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moneymanager/ui/shared/app_colors.dart';
+import 'package:moneymanager/ui/views/MainCalculationPage.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer(
@@ -44,6 +45,20 @@ class AppDrawer extends StatelessWidget {
           Divider(
             thickness: 1,
           ),
+          ListTile(
+            title: Text('Calculation'),
+            leading: Icon(Icons.calculate),
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => MainCalculationPage()));
+
+            },
+          ),
+          Divider(
+            thickness: 1,
+          ),
+
+
         ],
       ),
     );

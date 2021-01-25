@@ -41,6 +41,7 @@ dependencies:
   chips_choice: ^1.2.0
   flutter_local_notifications: ^0.8.4+3
   shared_preferences: ^0.5.8
+  http: any
 
 
 

@@ -1,4 +1,9 @@
-import 'package:flutter/material.dart';
+//if Router there is some error on Router use this
+//most likely the error will popup on new flutter version
+import 'package:flutter/material.dart ' hide Router;
+//else use this
+// import 'package:flutter/material.dart ';
+
 import 'package:moneymanager/locator.dart';
 import 'package:moneymanager/ui/router.dart';
 import 'package:moneymanager/ui/shared/app_colors.dart';
