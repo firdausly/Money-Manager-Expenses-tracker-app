@@ -8,21 +8,23 @@ class EmptyTransactionsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        UIHelper.verticalSpaceLarge(),
-        Image.asset(
-          'assets/icons/no-money.png',
-          width: 120,
-          height: 120,
-        ),
-        UIHelper.verticalSpaceMedium(),
-        Text(
-          'No transactions\nTap + to add one.',
-          textAlign: TextAlign.center,
-          style: TextStyle(color: Colors.grey, fontSize: 18),
-        ),
-      ],
+    return Container(
+      child: Column(
+        children: <Widget>[
+          UIHelper.verticalSpaceLarge(),
+          Image.asset(
+            'assets/icons/emptywallet.jpg',
+            width: 200,
+            height: 200,
+          ),
+          UIHelper.verticalSpaceMedium(),
+          Text(
+            'No transactions\nTap + to add one.',
+            textAlign: TextAlign.center,
+            style: TextStyle(color: Colors.grey, fontSize: 18),
+          ),
+        ],
+      ),
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:moneymanager/core/database/moor_database.dart';
 import 'package:moneymanager/core/enums/viewstate.dart';
@@ -18,8 +19,37 @@ class HomeView extends StatelessWidget {
     return BaseView<HomeModel>(
       onModelReady: (model) async => await model.init(),
       builder: (context, model, child) => Scaffold(
+        bottomNavigationBar: CurvedNavigationBar(
+          animationCurve: Curves.easeInBack,
+          height: 55,
+          index: 2,
+          backgroundColor: Colors.white,
+          // buttonBackgroundColor: Colors.greenAccent,
+          color: Colors.greenAccent,
+          items: [
+            Icon(Icons.pie_chart),
+            Icon(Icons.notifications),
+            Icon(Icons.home_filled,size: 40,),
+            Icon(Icons.calculate),
+            Icon(Icons.note_add),
+          ],
+          onTap: (index){
+            switch(index.toString()){
+              case '0':
+                return Navigator.of(context).pushNamed("chart");
+              case '1':
+                return Navigator.of(context).pushNamed("reminder");
+              case '2':
+                return Navigator.of(context).pushNamed("home");
+              case '3':
+                return Navigator.of(context).pushNamed("calculation");
+              case '4':
+                return Navigator.of(context).pushNamed("notes");
+            }
+          },
+        ),
         appBar: buildAppBar(model.appBarTitle, model),
-        drawer: AppDrawer(context),
+        // drawer: AppDrawer(context),
         floatingActionButton: Visibility(
           visible: model.show,
           child: AppFAB(model.closeMonthPicker),

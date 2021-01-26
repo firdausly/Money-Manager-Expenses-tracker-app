@@ -15,37 +15,39 @@ class NewTransactionView extends StatelessWidget {
         ),
         body: SafeArea(
           child: GridView.count(
-            crossAxisCount: 3,
-            childAspectRatio: 1.2,
+            crossAxisCount: 2,
+            childAspectRatio: 1.25,
             children: model
                 .loadCategoriesIcons()
-                .map((e) => Card(
-                    elevation: 4,
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.of(context).pushNamed("inserttransaction",
-                            arguments: [e, model.selectedCategory]);
-                      },
-                      child: Container(
-                        padding: EdgeInsets.all(4),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: <Widget>[
-                            Text(e.name),
-                            UIHelper.verticalSpaceSmall(),
-                            CircleAvatar(
-                              radius: 30,
-                              child: Center(
-                                child: Icon(
-                                  e.icon,
-                                  size: 25,
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
+                .map((e) => Padding(
+              padding: EdgeInsets.all(5),
+              child: Card(
+                  color: Colors.white,
+                  elevation: 35,
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.of(context).pushNamed("inserttransaction",
+                          arguments: [e, model.selectedCategory]);
+                    },
+                    child: Container(
+                      padding: EdgeInsets.all(4),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          Text(e.name,style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
+                          UIHelper.verticalSpaceSmall(),
+                          Divider(),
+                          Center(
+                            child: Icon(
+                              e.icon,
+                              size: 55,
+                            ),
+                          )
+                        ],
                       ),
-                    )))
+                    ),
+                  )),
+            ))
                 .toList(),
           ),
         ),

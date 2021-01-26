@@ -9,6 +9,7 @@ import 'package:moneymanager/locator.dart';
 import 'package:moneymanager/ui/router.dart';
 import 'package:moneymanager/ui/shared/app_colors.dart';
 
+
 void main() {
   setupLocator();
   runApp(MyApp());

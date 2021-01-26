@@ -1,3 +1,4 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
 import 'package:moneymanager/Calculation/SplitBill.dart';
@@ -16,6 +17,34 @@ class MainCalculationPage extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
+        bottomNavigationBar: CurvedNavigationBar(
+          height: 55,
+          index: 3,
+          backgroundColor: Colors.white,
+          // buttonBackgroundColor: Colors.greenAccent,
+          color: Colors.greenAccent,
+          items: [
+            Icon(Icons.pie_chart),
+            Icon(Icons.notifications),
+            Icon(Icons.home_filled,size: 40,),
+            Icon(Icons.calculate),
+            Icon(Icons.note_add),
+          ],
+          onTap: (index){
+            switch(index.toString()){
+              case '0':
+                return Navigator.of(context).pushNamed("chart");
+              case '1':
+                return Navigator.of(context).pushNamed("reminder");
+              case '2':
+                return Navigator.of(context).pushNamed("home");
+              case '3':
+                return Navigator.of(context).pushNamed("calculation");
+              case '4':
+                return Navigator.of(context).pushNamed("notes");
+            }
+          },
+        ),
         appBar: AppBar(title: Text('Calculation')),
         body: Center(
             child: GridView.count(
